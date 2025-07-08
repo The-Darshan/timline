@@ -122,7 +122,7 @@ function formatGitHubData(array $data): string {
     }
 
     $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
-    $baseUrl .= "://" . $_SERVER['HTTP_HOST'];
+    $baseUrl .= "://" . ($_SERVER['HTTP_HOST'] ?? "localhost");
     $baseUrl .= dirname($_SERVER['PHP_SELF']); 
 
     $unsubscribeUrl = $baseUrl . "/unsubscribe.php";
